@@ -63,7 +63,7 @@ const writeStatsFile = (content: OutputObject, options: PluginOptions) => {
       fs.appendFileSync(outputFilePath, csvContent, 'utf8');
     }
   } catch (err) {
-    console.error('BuildStatsWebpackPlugin error: ', err);
+    console.error('BuildRecordsWebpackPlugin error: ', err);
   }
 };
 
@@ -133,7 +133,7 @@ const handleOutput = (buildStats: BuildStats, options: PluginOptions) => {
   }
 };
 
-class BuildStatsWebpackPlugin {
+class BuildRecordsWebpackPlugin {
 
   options: PluginOptions = {
     callback: noop,
@@ -151,13 +151,13 @@ class BuildStatsWebpackPlugin {
     let mode = '';
     let buildStats = generateBuildStatsTemplate();
 
-    compiler.hooks.afterEnvironment.tap({ name: 'BuildStatsWebpackPlugin' }, () => {
-      // console.log('BuildStatsWebpackPlugin afterEnvironment compiler.options', compiler.options);
+    compiler.hooks.afterEnvironment.tap({ name: 'BuildRecordsWebpackPlugin' }, () => {
+      // console.log('BuildRecordsWebpackPlugin afterEnvironment compiler.options', compiler.options);
       mode = compiler.options.mode;
     });
 
-    compiler.hooks.thisCompilation.tap({ name: 'BuildStatsWebpackPlugin' }, (compilation: any, compilationParams: any) => {
-      // console.log('--- BuildStatsWebpackPlugin thisCompilation ---');
+    compiler.hooks.thisCompilation.tap({ name: 'BuildRecordsWebpackPlugin' }, (compilation: any, compilationParams: any) => {
+      // console.log('--- BuildRecordsWebpackPlugin thisCompilation ---');
       buildStats = generateBuildStatsTemplate();
       buildStats.mode = mode;
 
@@ -168,9 +168,9 @@ class BuildStatsWebpackPlugin {
       buildStats['thisCompilation.compilationParams.contextModuleFactory.resolverFactory.cache.size'] = contextModuleCacheSize;
     });
 
-    compiler.hooks.done.tap({ name: 'BuildStatsWebpackPlugin' }, (stats: any) => {
-      // console.log('--- BuildStatsWebpackPlugin done ---');
-      // console.log('BuildStatsWebpackPlugin stats.compilation', Object.keys(stats.compilation));
+    compiler.hooks.done.tap({ name: 'BuildRecordsWebpackPlugin' }, (stats: any) => {
+      // console.log('--- BuildRecordsWebpackPlugin done ---');
+      // console.log('BuildRecordsWebpackPlugin stats.compilation', Object.keys(stats.compilation));
       // console.log('stats.compilation.resolverFactory', stats.compilation.resolverFactory);
 
       const startTime = stats.compilation.startTime;
@@ -199,4 +199,4 @@ class BuildStatsWebpackPlugin {
   }
 }
 
-module.exports = BuildStatsWebpackPlugin;
+module.exports = BuildRecordsWebpackPlugin;

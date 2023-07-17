@@ -37,11 +37,11 @@ pnpm install -D build-records-webpack-plugin
 **webpack.config.js**:
 
 ```js
-const BuildStatsWebpackPlugin = require('build-records-webpack-plugin');
+const BuildRecordsWebpackPlugin = require('build-records-webpack-plugin');
 
 module.exports = {
   plugins: [
-    new BuildStatsWebpackPlugin()
+    new BuildRecordsWebpackPlugin()
   ]
 };
 ```
@@ -105,7 +105,7 @@ production,67087,1689588588760,2023/7/17 18:09:48,Deland,insidethe47s@gmail.com,
 ```js
 module.exports = {
   plugins: [
-    new BuildStatsWebpackPlugin({
+    new BuildRecordsWebpackPlugin({
       callback: (output) => {
         // You can collect stats in your way
         report(output);
