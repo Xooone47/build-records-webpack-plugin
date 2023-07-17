@@ -2,9 +2,9 @@
 const typescript = require('@rollup/plugin-typescript');
 
 module.exports = {
-  input: 'src/build-stats-webpack-plugin.ts',
+  input: 'src/build-records-webpack-plugin.ts',
   output: {
-    file: 'dist/build-stats-webpack-plugin.js',
+    file: 'dist/build-records-webpack-plugin.js',
     format: 'cjs'
   },
   plugins: [

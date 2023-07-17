@@ -1,6 +1,6 @@
-# build-stats-webpack-plugin
+# build-records-webpack-plugin
 
-A webpack plugin aiming to collect the build stats, including build type, build speed, build time, user information, add so on.
+A webpack plugin aiming to collect the build records, including build type, build speed, build time, user information, add so on.
 
 A classical output like:
 
@@ -25,11 +25,11 @@ The field **buildType** represents:
 ## Installation
 
 ```bash
-npm install --save-dev build-stats-webpack-plugin
+npm install --save-dev build-records-webpack-plugin
 # or
-yarn add -D build-stats-webpack-plugin
+yarn add -D build-records-webpack-plugin
 # or
-pnpm install -D build-stats-webpack-plugin
+pnpm install -D build-records-webpack-plugin
 ```
 
 ## Usage
@@ -37,7 +37,7 @@ pnpm install -D build-stats-webpack-plugin
 **webpack.config.js**:
 
 ```js
-const BuildStatsWebpackPlugin = require('build-stats-webpack-plugin');
+const BuildStatsWebpackPlugin = require('build-records-webpack-plugin');
 
 module.exports = {
   plugins: [

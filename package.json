@@ -1,8 +1,8 @@
 {
-  "name": "build-stats-webpack-plugin",
+  "name": "build-records-webpack-plugin",
   "version": "0.0.1",
   "description": "A webpack plugin aiming to collect the build stats, including build type, build speed, build time, user information, add so on.",
-  "main": "dist/build-stats-webpack-plugin.js",
+  "main": "dist/build-records-webpack-plugin.js",
   "files": [
     "dist",
     "src"
@@ -22,9 +22,9 @@
     "stats",
     "speed"
   ],
-  "bugs": "https://github.com/Xooone47/build-stats-webpack-plugin/issues",
-  "homepage": "https://github.com/Xooone47/build-stats-webpack-plugin",
-  "repository": "https://github.com/Xooone47/build-stats-webpack-plugin.git",
+  "bugs": "https://github.com/Xooone47/build-records-webpack-plugin/issues",
+  "homepage": "https://github.com/Xooone47/build-records-webpack-plugin",
+  "repository": "https://github.com/Xooone47/build-records-webpack-plugin.git",
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.1.2",
     "@types/node": "^20.4.2",
