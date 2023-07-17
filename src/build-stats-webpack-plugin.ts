@@ -4,9 +4,7 @@ const path = require('path');
 const userMeta = require('user-meta');
 const gitBranch = require('git-branch');
 
-const { name: userName, email } = userMeta();
-
-const csvHeaders = ['buildType', 'buildSpeed', 'finishTime', 'finishTimeLocale', 'gitUserName', 'gitUserEmail', 'gitBranch'] as const;
+const { name: userName, email } = userMeta;
 
 // TODO
 // distingush build type: start with cache, start without cache
@@ -22,8 +20,11 @@ enum BuildType {
   'unknown-build-type' = 'unknown-build-type',
 }
 
+const csvHeaders = [
+  'buildType', 'buildSpeed', 'finishTime', 'finishTimeLocale', 'gitUserName', 'gitUserEmail', 'gitBranch'
+] as const;
 
-interface OutputObject {
+interface OutputObject extends Record<typeof csvHeaders[number], string | number> {
   buildType: BuildType;
   buildSpeed: number;
   finishTime: number;
@@ -38,7 +39,6 @@ interface PluginOptions {
   outputFormat?: 'json' | 'csv' | false;
   outputPath?: string;
 }
-
 
 const writeStatsFile = (content: OutputObject, options: PluginOptions) => {
   const {outputPath, outputFormat} = options;
@@ -137,8 +137,8 @@ class BuildStatsWebpackPlugin {
 
   options: PluginOptions = {
     callback: noop,
-    outputFormat: 'json',  // json, csv, false
-    outputPath: __dirname,
+    outputFormat: 'json',
+    outputPath: process.cwd(),
   };
 
   constructor(options?: PluginOptions) {
@@ -146,6 +146,7 @@ class BuildStatsWebpackPlugin {
     (options?.outputFormat !== undefined) && (this.options.outputFormat = options.outputFormat);
     options?.outputPath && (this.options.outputPath = options.outputPath);
   }
+
   apply(compiler: any) {
     let mode = '';
     let buildStats = generateBuildStatsTemplate();
