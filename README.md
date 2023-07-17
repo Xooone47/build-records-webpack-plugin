@@ -1,6 +1,6 @@
 # build-records-webpack-plugin
 
-A webpack plugin aiming to collect the build records, including build type, build speed, build time, user information, add so on.
+A webpack plugin aiming to collect the build records, including build type, build speed, build time, user information, and so on.
 
 A classical output like:
 
