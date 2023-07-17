@@ -6,13 +6,13 @@ A classical output like:
 
 ```json
 {
-  buildType: 'production',
-  buildSpeed: 18302,
-  finishTime: 1689586126497,
-  finishTimeLocale: '2023/7/17 17:28:46',
-  gitUserName: 'Deland',
-  gitUserEmail: 'insidethe47s@gmail.com',
-  gitBranch: 'master'
+  "buildType": "production",
+  "buildSpeed": 362849,
+  "finishTime": 1689585090968,
+  "finishTimeLocale": "2023/7/17 17:11:30",
+  "gitUserName": "Deland",
+  "gitUserEmail": "insidethe47s@gmail.com",
+  "gitBranch": "master"
 }
 ```
 
